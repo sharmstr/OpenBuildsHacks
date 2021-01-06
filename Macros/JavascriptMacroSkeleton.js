@@ -11,9 +11,9 @@ if (!document.getElementById('macroRan')) {
   // do some stuff
   // then create the hidden div indicating that we've run the macro
   var macroHasRun = '<div id="macroRan" class="hidden"></div>'
+  $('#grblProbeMenu').after(macroHasRun);
   macroRunResults = 'Macro ran.';
 } else {
-
   // we found the div so dont run macro again.
   printLog('Macro has already run.')
   macroRunResults = 'Macro already ran.  Not going to run again.';
