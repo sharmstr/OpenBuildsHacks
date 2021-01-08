@@ -1,6 +1,6 @@
 // replace step size inch buttons with .001, .01, .1 and 1.  We are replacing functions here, so need to be careful with updates
 // v1.0
-if (!document.getElementById('macroRan')) { // check to see if macro has run before
+if (!document.getElementById('inchMacro')) { // check to see if macro has run before
   window.mmMode = function() {
     unit = "mm";
     localStorage.setItem('unitsMode', unit);
@@ -215,7 +215,7 @@ if (!document.getElementById('macroRan')) { // check to see if macro has run bef
 
   }
   $('#dist10').click();
-  var macroHasRun = '<div id="macroRan" class="hidden"></div>'
+  var macroHasRun = '<div id="inchMacro" class="hidden"></div>'
   $('#grblProbeMenu').after(macroHasRun);
   printLog('Macro ran')
 } else {
