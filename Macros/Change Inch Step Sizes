@@ -1,4 +1,5 @@
 // replace step size inch buttons with .001, .01, .1 and 1.  We are replacing functions here, so need to be careful with updates
+// v1.0
 if (!document.getElementById('macroRan')) { // check to see if macro has run before
   window.mmMode = function() {
     unit = "mm";
