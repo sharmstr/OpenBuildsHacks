@@ -217,6 +217,8 @@ if (!document.getElementById('inchMacro')) { // check to see if macro has run be
   $('#dist10').click();
   var macroHasRun = '<div id="inchMacro" class="hidden"></div>'
   $('#grblProbeMenu').after(macroHasRun);
+  var addToTitleBar = '<span class="title" style="color:yellow;">JAVASCRIPT MACRO HAS BEEN APPLIED</span>'
+  $('#windowtitle').after(addToTitleBar);
   printLog('Macro ran')
 } else {
   printLog('Macro has already run. Cant run again.')
