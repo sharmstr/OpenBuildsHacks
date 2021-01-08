@@ -1,6 +1,9 @@
-// replace step size inch buttons with .001, .01, .1 and 1.  We are replacing functions here, so need to be careful with updates
 // v1.0
-// After running macro, will switch to Serial Console so you can check for any messages. It will also set initial stepsize to 10mm or .1 in. It will add a message to title bar so support knows that ui changes were made.
+// This macro will replace step size inch buttons with .001, .01, .1 and 1.  We are replacing functions here, so need to be careful with updates
+// After running the macro it will:
+//  1 - Switch to Serial Console so you can check for any messages. You need to scroll down to see them.
+//  2 - Set initial stepsize to 10mm or .100" depending on what mode you are in.
+//  3 - Adds a message to title bar so support knows that ui changes were made and hopefully remind user to mention this when opening support threads on forum.
 
 if (!document.getElementById('inchMacro')) { // check to see if macro has run before
   window.mmMode = function() {
