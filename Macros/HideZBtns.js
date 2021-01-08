@@ -1,5 +1,5 @@
 var macroRunResults = '';
-if (!document.getElementById('macroRan')) {
+if (!document.getElementById('hideZmacro')) {
 
  
  // Remove Z jog buttons when 100mm clicked
@@ -68,7 +68,7 @@ if (!document.getElementById('macroRan')) {
     }
   });
 
-  var macroHasRun = '<div id="macroRan" class="hidden"></div>'
+  var macroHasRun = '<div id="hideZmacro" class="hidden"></div>'
   $('#grblProbeMenu').after(macroHasRun);
   macroRunResults = 'Macro ran.';
 } else {
