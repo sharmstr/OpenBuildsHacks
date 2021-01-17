@@ -4,44 +4,54 @@ if (!document.getElementById('hideZmacro')) {
  
  // Remove Z jog buttons when 100mm clicked
 
-  var currentStepSize = "dist10label"; // should be dist10 on startup
+  var currentStepSize = "dist10"; // should be dist10 on startup
 
   // incase stepsize was changed before macro was run
   if ($('#dist100').hasClass('bd-openbuilds') ) {
       hideZbtns();
   } else if ($('#dist01').hasClass('bd-openbuilds')) { 
-      currentStepSize = "dist01label";
+      currentStepSize = "dist01";
   } else if ($('#dist1').hasClass('bd-openbuilds')) {
-      currentStepSize = "dist1label";
+      currentStepSize = "dist1";
   }
 
   $(document).bind('keydown', keyboardShortcuts.stepP, function(e) {
-      if ( currentStepSize == 'dist10label' ) {
+      if ( currentStepSize == 'dist10' ) {
           hideZbtns();
-      } else if (currentStepSize == 'dist01label') {
-          currentStepSize = 'dist1label';
-      } else if (currentStepSize == 'dist1label') {
-          currentStepSize = 'dist10label';
+      } else if (currentStepSize == 'dist01') {
+          currentStepSize = 'dist1';
+      } else if (currentStepSize == 'dist1') {
+          currentStepSize = 'dist10';
       }
   });
 
   $(document).bind('keydown', keyboardShortcuts.stepM, function(e) {
       showZbtns();
-      if ( currentStepSize == 'dist100label' ) {
-          currentStepSize = 'dist10label';
-      } else if (currentStepSize == 'dist10label') {
-          currentStepSize = 'dist1label';
-      } else if (currentStepSize == 'dist1label') {
-          currentStepSize = 'dist01label';
+      if ( currentStepSize == 'dist100' ) {
+          currentStepSize = 'dist10';
+      } else if (currentStepSize == 'dist10') {
+          currentStepSize = 'dist1';
+      } else if (currentStepSize == 'dist1') {
+          currentStepSize = 'dist01';
       }
   });
 
-  $('#dist100label').on('click', function() {
+  $('#dist100').on('click', function() {
       hideZbtns();
   });
 
-  $('#dist01label,#dist10label,#dist1label').on('click', function() {
-      currentStepSize = event.srcElement.id;
+  $('#dist01').on('click', function() {
+      currentStepSize = 'dist01';
+      showZbtns();   
+  });
+
+  $('#dist10l').on('click', function() {
+      currentStepSize = 'dist10l';
+      showZbtns();   
+  });
+
+  $('#dist1').on('click', function() {
+      currentStepSize = 'dist1';
       showZbtns();   
   });
 
@@ -49,7 +59,7 @@ if (!document.getElementById('hideZmacro')) {
       $('#zM,#zP').hide();
       $('#dist100').css('width', '150%');
       $('#dist100').closest('td').css('padding-right', '25px');
-      currentStepSize = 'dist100label'; 
+      currentStepSize = 'dist100'; 
   };
 
   function showZbtns() {
