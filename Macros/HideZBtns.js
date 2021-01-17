@@ -45,13 +45,13 @@ if (!document.getElementById('hideZmacro')) {
       showZbtns();   
   });
 
-  $('#dist10l').on('click', function() {
-      currentStepSize = 'dist10l';
+  $('#dist1').on('click', function() {
+      currentStepSize = 'dist1';
       showZbtns();   
   });
 
-  $('#dist1').on('click', function() {
-      currentStepSize = 'dist1';
+  $('#dist10').on('click', function() {
+      currentStepSize = 'dist10l';
       showZbtns();   
   });
 
