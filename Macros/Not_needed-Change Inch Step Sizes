@@ -1,8 +1,8 @@
 // v1.0
-// This macro will replace step size inch buttons with .001, .01, .1 and 1.  We are replacing functions here, so need to be careful with updates
+// This macro will replace step size inch buttons with .01, .1, 1 and 10.  We are replacing functions here, so need to be careful with updates
 // After running the macro it will:
 //  1 - Switch to Serial Console so you can check for any messages. You need to scroll down to see them.
-//  2 - Set initial stepsize to 10mm or .100" depending on what mode you are in.
+//  2 - Set initial stepsize to 10mm or 1" depending on what mode you are in.
 //  3 - Adds a message to title bar so support knows that ui changes were made and hopefully remind user to mention this when opening support threads on forum.
 
 if (!document.getElementById('inchMacro')) { // check to see if macro has run before
@@ -31,27 +31,27 @@ if (!document.getElementById('inchMacro')) { // check to see if macro has run be
   }
 
   window.inMode = function() {
-    unit = "in";
-    localStorage.setItem('unitsMode', unit);
-    $('#dist01label').html('0.001"')
-    $('#dist1label').html('0.01"')
-    $('#dist10label').html('.1"')
-    $('#dist100label').html('1"')
-    if (jogdist == 0.1) {
-      jogdist = .0254
-    }
-    if (jogdist == 1) {
-      jogdist = .254
-    }
-    if (jogdist == 10) {
-      jogdist = 2.54
-    }
-    if (jogdist == 100) {
-      jogdist = 25.4
-    }
-    $('#jogratemmdiv').hide()
-    $('#jograteinchdiv').show()
-    mmtoinchrate()
+  unit = "in";
+  localStorage.setItem('unitsMode', unit);
+  $('#dist01label').html('0.01"')
+  $('#dist1label').html('0.1"')
+  $('#dist10label').html('1"')
+  $('#dist100label').html('10"')
+  if (jogdist == 0.1) {
+    jogdist = 0.254
+  }
+  if (jogdist == 1) {
+    jogdist = 2.54
+  }
+  if (jogdist == 10) {
+    jogdist = 25.4
+  }
+  if (jogdist == 100) {
+    jogdist = 254
+  }
+  $('#jogratemmdiv').hide()
+  $('#jograteinchdiv').show()
+  mmtoinchrate()
   }
 
 
@@ -59,7 +59,7 @@ if (!document.getElementById('inchMacro')) { // check to see if macro has run be
     if (unit == "mm") {
       jogdist = 0.1;
     } else if (unit == "in") {
-      jogdist = .0254;
+      jogdist = 0.254;
     }
     $('.distbtn').removeClass('bd-openbuilds')
     $('#dist01').addClass('bd-openbuilds')
@@ -73,7 +73,7 @@ if (!document.getElementById('inchMacro')) { // check to see if macro has run be
     if (unit == "mm") {
       jogdist = 1;
     } else if (unit == "in") {
-      jogdist = .254;
+      jogdist = 2.54;
     }
     $('.distbtn').removeClass('bd-openbuilds')
     $('#dist1').addClass('bd-openbuilds')
@@ -87,7 +87,7 @@ if (!document.getElementById('inchMacro')) { // check to see if macro has run be
     if (unit == "mm") {
       jogdist = 10;
     } else if (unit == "in") {
-      jogdist = 2.54;
+      jogdist = 25.4;
     }
     $('.distbtn').removeClass('bd-openbuilds')
     $('#dist10').addClass('bd-openbuilds')
@@ -98,11 +98,10 @@ if (!document.getElementById('inchMacro')) { // check to see if macro has run be
   })
 
   $('#dist100').on('click', function(ev) {
-    //printLog('I clicked on dist100')
     if (unit == "mm") {
       jogdist = 100;
     } else if (unit == "in") {
-      jogdist = 25.4;
+      jogdist = 254.0;
     }
     $('.distbtn').removeClass('bd-openbuilds')
     $('#dist100').addClass('bd-openbuilds')
