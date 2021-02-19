@@ -6,7 +6,6 @@
 //  3 - Adds a message to title bar so support knows that ui changes were made and hopefully remind user to mention this when opening support threads on forum.
 
 $(document).ready(function() {
-
     window.mmMode = function() {
         unit = "mm";
         localStorage.setItem('unitsMode', unit);
